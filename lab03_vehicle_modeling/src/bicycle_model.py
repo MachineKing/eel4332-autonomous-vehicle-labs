@@ -25,27 +25,7 @@ def wheel_speed_to_twist(
     steering: float,
     wheelbase: float,
 ) -> tuple[float, float]:
-    """Return body-forward speed and yaw rate for the bicycle model.
-
-    Parameters are SI units:
-      wheel_speed: equivalent driven-wheel angular velocity in rad/s
-      wheel_radius: effective driven-wheel radius in m
-      steering: equivalent front-wheel steering angle in rad
-      wheelbase: distance between equivalent front and rear axles in m
-
-    Returns:
-      linear_speed: body-forward speed in m/s
-      yaw_rate: vehicle yaw rate in rad/s
-
-    TODO: replace the two _student_todo expressions below. The return
-    statement is provided as scaffolding.
-
-    Hints:
-      - Start with the tangential speed at the driven wheel's rim.
-      - Zero steering must give zero yaw rate.
-      - For fixed speed and wheelbase, increasing steering magnitude should
-        increase yaw-rate magnitude.
-    """
+    """Return body-forward speed and yaw rate for the bicycle model."""
     linear_speed = wheel_radius * wheel_speed
     yaw_rate = (linear_speed / wheelbase) * np.tan(steering)
     return linear_speed, yaw_rate
@@ -59,25 +39,7 @@ def step_bicycle(
     wheelbase: float,
     dt: float,
 ) -> BicycleState:
-    """Advance the planar kinematic bicycle model by one time step.
-
-    Parameters are SI units:
-      state: current planar pose; x and y in m, yaw in rad
-      wheel_speed: equivalent driven-wheel angular velocity in rad/s
-      wheel_radius: effective driven-wheel radius in m
-      steering: front-wheel steering angle in rad
-      wheelbase: distance between equivalent front and rear axles in m
-      dt: integration time step in s
-
-    Returns:
-      BicycleState: new pose after one time step; x and y in m, yaw in rad
-
-    TODO: replace the three _student_todo expressions below. The function
-    call, Euler updates, and return statement are provided as scaffolding.
-
-    Hint: use the current yaw, not the newly updated yaw, when computing this
-    explicit Euler step's world-frame position rates.
-    """
+    """Advance the planar kinematic bicycle model by one time step."""
     linear_speed, yaw_rate = wheel_speed_to_twist(
         wheel_speed, wheel_radius, steering, wheelbase
     )
@@ -99,28 +61,7 @@ def simulate(
     dt: float,
     duration: float,
 ) -> np.ndarray:
-    """Return an N x 3 trajectory for a constant-input experiment.
-
-    Parameters are SI units:
-      initial_state: pose at time zero; x and y in m, yaw in rad
-      wheel_speed: constant equivalent driven-wheel angular velocity in rad/s
-      wheel_radius: effective driven-wheel radius in m
-      steering: constant front-wheel steering angle in rad
-      wheelbase: distance between equivalent front and rear axles in m
-      dt: fixed integration time step in s
-      duration: requested simulation duration in s
-
-    Returns:
-      np.ndarray: trajectory with one pose per row and columns [x, y, yaw];
-      x and y are in m and yaw is in rad
-
-    TODO: replace the one _student_todo expression below. Array creation,
-    initial-state storage, the model call, loop structure, and sample storage
-    are provided.
-
-    Hint: store initial_state first, then repeatedly advance from the most
-    recently returned BicycleState until all fixed time steps are complete.
-    """
+    """Return an N x 3 trajectory for a constant-input experiment."""
     num_steps = int(round(duration / dt))
     trajectory = np.zeros((num_steps + 1, 3))
     trajectory[0] = [initial_state.x, initial_state.y, initial_state.yaw]

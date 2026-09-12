@@ -30,8 +30,7 @@ Select one target. Before running the program, record the wheel-speed relationsh
 
 | Motion target | Predicted wheel-speed relationship or calculation | Chosen $\omega_L$ [rad/s] | Chosen $\omega_R$ [rad/s] | Final $(x,y,\theta)$ | Target met? |
 |---|---|---:|---:|---|---|
-
-| selected target: 1 CCW in-place spin | For target theta = 2pi/8, thetadot = 2pi/8 = 0.7854 rad/s. Using wr = -wl = b*thetadot/(2r) = (0.16*0.7854)/(2*0.033) = 1.904 rad/s. Eqiual and opposite speeds give a pure roation. | -3.0 | 3.0 | (0,0,9.9) | Yes |
+| 1 CCW in-place spin | For target theta = 2pi/8, thetadot = 2pi/8 = 0.7854 rad/s. Using wr = -wl = b*thetadot/(2r) = (0.16*0.7854)/(2*0.033) = 1.904 rad/s. Equal and opposite speeds give a pure rotation. | -3.0 | 3.0 | (0, 0, 9.9) | Yes |
 
 ## TurtleBot visual checkpoint
 
@@ -57,7 +56,7 @@ straight: w = 5, delta = 0, v = 1.5 m/s, thetadot = 0 rad/s
 gentle_turn: w = 5, delta = 0.12, v = 1.5 m/s, thetadot = 0.065 rad/s
 tighter_turn: w = 5, delta = 0.25, v = 1.5 m/s, thetadot = 0.137 rad/s
 
-Effects: Zero steering (delta = 0) produces a yar rate of zero (thetadot = 0) which drives the vehicle straight ahead. For increased steering magnitude, the forward speed v = rw remains constant (1.5 m/s) becuase thw wheel speed is fixed, but the yaw rate increases with the steering angle in a non-linear way due to the tan(delta) geometry.
+Effects: Zero steering (delta = 0) produces a yaw rate of zero (thetadot = 0) which drives the vehicle straight ahead. For increased steering magnitude, the forward speed v = rw remains constant (1.5 m/s) becuase the wheel speed is fixed, but the yaw rate increases with the steering angle in a non-linear way due to the tan(delta) geometry.
 
 ## Model comparison
 
@@ -79,7 +78,7 @@ Answer Questions 1–6 from the README. Use equations, units, plots, or table va
 
 2. In-place rotation only occurs when the body's forward linear speed v = 0. Setting the equation equal to zero gives us that wl = -wr, so the wheels must rotate at equal speeds in opposite directions.
 
-3. The bicycle model's eqwuation for yaw rate is (thetadot) = v/L * tan(delta). Becuase tan(delta) is non-linear, doubling delta does not double thetadot. For very small angles tan(delta) is about equal to delta, but as the delta increases, the yaw rate grows faster than delta.
+3. The bicycle model's equation for yaw rate is (thetadot) = v/L * tan(delta). Because tan(delta) is non-linear, doubling delta does not double thetadot. For very small angles tan(delta) is about equal to delta, but as the delta increases, the yaw rate grows faster than delta.
 
 4. The Euler integration assumes the vx, vy, and thetadot to remain constant across the step size dt. For curved motion, the vehicle's header changes continuously, which causes drift errors to occur especially with larger values of dt.
 

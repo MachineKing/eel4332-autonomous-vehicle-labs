@@ -7,6 +7,7 @@ Describe what you observed during forward, reverse, curved, and in-place motion.
 I observed that during forward motion, pressing "I" made the robot move directly forward and increased its linear x values with no rotating. Pressing "," made the robot move directly backwards and decreased/published negative x values, with no rotation. Pressing "u" and "o" caused angular, forward motion, where the x and z values changed simultaneously, and the robot followed a curved path. Pressing "j" or "l" caused only z values to change, and it made the robot rotate in place with no translational motion.
 
 ## Challenge screenshot
+![Driving Challenge Screenshot](results/drive_challenge.png)
 
 # Lab 02 — TurtleBot Playground
 

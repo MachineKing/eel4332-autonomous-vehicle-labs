@@ -46,8 +46,8 @@ def wheel_speeds_to_twist(
       - Their right-minus-left difference determines the yaw direction.
       - Equal wheel speeds are a useful zero-yaw check.
     """
-    linear_speed = _student_todo("average the left and right wheel-edge speeds")
-    yaw_rate = _student_todo("use the right-minus-left wheel-speed difference")
+    linear_speed = (wheel_radius / 2.0) * (right_speed + left_speed)
+    yaw_rate = (wheel_radius / track_width) * (right_speed - left_speed)
     return linear_speed, yaw_rate
 
 
@@ -82,12 +82,12 @@ def step_differential_drive(
     linear_speed, yaw_rate = wheel_speeds_to_twist(
         left_speed, right_speed, wheel_radius, track_width
     )
-    x_rate = _student_todo("project forward speed onto the world x-axis")
-    y_rate = _student_todo("project forward speed onto the world y-axis")
+    x_rate = linear_speed * np.cos(state.yaw)
+    y_rate = linear_speed * np.sin(state.yaw)
 
     new_x = state.x + x_rate * dt
     new_y = state.y + y_rate * dt
-    new_yaw = _student_todo("integrate yaw_rate for one time step")
+    new_yaw = state.yaw + yaw_rate * dt
     return DifferentialDriveState(x=new_x, y=new_y, yaw=new_yaw)
 
 
@@ -122,7 +122,7 @@ def simulate_differential_drive(
     update. For a duration divided into fixed steps, the initial sample makes
     the trajectory contain one more row than the number of updates.
     """
-    num_steps = _student_todo("calculate the number of fixed Euler updates")
+    num_steps = int(round(duration / dt))
     trajectory = np.zeros((num_steps + 1, 3))
     trajectory[0] = [initial_state.x, initial_state.y, initial_state.yaw]
 

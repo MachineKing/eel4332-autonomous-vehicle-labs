@@ -122,7 +122,7 @@ def simulate_differential_drive(
     update. For a duration divided into fixed steps, the initial sample makes
     the trajectory contain one more row than the number of updates.
     """
-    num_steps = int(round(duration / dt))
+   num_steps = int(round(duration / dt))
     trajectory = np.zeros((num_steps + 1, 3))
     trajectory[0] = [initial_state.x, initial_state.y, initial_state.yaw]
 

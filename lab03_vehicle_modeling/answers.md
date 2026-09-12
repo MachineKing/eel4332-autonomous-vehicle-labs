@@ -4,6 +4,14 @@
 
 Record the predicted motion and signs of body-forward speed and vehicle yaw rate for each wheel-angular-velocity case.
 
+Case 1: wl = 5 rad/s, wr = 5 rad/s. Velocity is positive. Time derivative of theta: 0. Predicted motion: straight forward motion without rotating.
+
+Case 2: wl = 0 rad/s, wr = 5 rad/s. Velocity is positive. Time derivative of theta: positive. Predicted motion: foward counterclockwise curve (pivoting around left wheel).
+
+Case 3: wl = -3 rad/s, wr = 3 rad/s. Velocity is zero. Time derivative of theta: positive. Predicted motion: counterclockwise in-place rotation w/ no translation.
+
+Case 4: wl = 5 rad/s, wr = 4.8 rad/s. Velocity is positive. Time derivative of theta: negative. Predicted motion: gentle forward clockwise curve (towards the right) 
+
 ## Differential-drive validation
 
 Summarize the final pose of each special case and explain any disagreement with your hand prediction.

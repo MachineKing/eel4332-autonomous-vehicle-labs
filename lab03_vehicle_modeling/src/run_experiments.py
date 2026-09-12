@@ -27,7 +27,6 @@ STUDENT_MOTION_CASES: list[tuple[str, float, float]] = [
     ("one_ccw_spin", -3.0, 3.0)
 ]
 
-
 def add_trajectory_playback(
     axis: Axes,
     trajectories: list[tuple[np.ndarray, str]],

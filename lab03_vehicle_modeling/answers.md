@@ -37,9 +37,11 @@ Select one target. Before running the program, record the wheel-speed relationsh
 
 Insert one screenshot showing TurtleBot during a commanded motion case and identify whether it shows straight motion, curved motion, or in-place rotation.
 
-PLACEHOLDER
+![TurtleBot Motion](results/turtlebot_motion.png)
 
 Record the `pose.pose.position.x` and `.y` values from `/odom` before and after the straight command. Briefly explain how this change relates to the pose integration in `differential_drive.py`.
+
+Identified Motion: Straight-Line Foward Motion
 
 Initial pose: position.x = 0.0000, position.y = 0.0000
 Final pose: position.x = 1.3200, position.y = 0.0000

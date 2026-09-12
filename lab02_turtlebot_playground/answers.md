@@ -7,7 +7,8 @@ Describe what you observed during forward, reverse, curved, and in-place motion.
 I observed that during forward motion, pressing "I" made the robot move directly forward and increased its linear x values with no rotating. Pressing "," made the robot move directly backwards and decreased/published negative x values, with no rotation. Pressing "u" and "o" caused angular, forward motion, where the x and z values changed simultaneously, and the robot followed a curved path. Pressing "j" or "l" caused only z values to change, and it made the robot rotate in place with no translational motion.
 
 ## Challenge screenshot
-![Driving Challenge Screenshot](lab02_turtlebot_playground/results/drive_challenge.png)
+
+At bottom of the file or in the RESULTS folder in the repository.
 
 # Lab 02 — TurtleBot Playground
 
@@ -74,3 +75,5 @@ Answer Questions 1–4 from the README using observations from your own simulati
 3. /cmd_vel only tells the robot how fast to move, not where to go, so without a system in place to keep track of the robot's position and steer it towards a final coordinate, it won't know where to go.
 
 4. I observed by watching the gazebo screen and reading the /odom updates, basically doing what a LiDAR or camera would do but manually. I decided by looking at the cylinders and choosing how to steer around them, which is just manually doing what a path-planning software could do. I commanded by pressing keys to send movement messages, and autonomy replaces this with motion control algorithms that automatically adjust the wheel speeds for me. 
+
+![Driving Challenge Screenshot](results/drive_challenge.png)
